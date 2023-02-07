@@ -40,26 +40,33 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 className="fixed top-0 right-0 left-0 z-50 flex h-16 list-none items-center justify-between px-10 text-2xl text-white"
             >
-                <button>Pollgram</button>
+                <a href="#main" onClick={(e) => scrollToTarget(e, "main")}>
+                    Pollgram
+                </a>
                 <ul className="flex gap-5">
-                    <li>Home</li>
                     <li>Your Polls</li>
                 </ul>
                 <button>Login</button>
             </motion.nav>
             <main className="flex flex-col overflow-x-hidden text-white backdrop-blur-lg">
-                <section className="flex h-screen items-end gap-16 p-5">
+                <section
+                    id="main"
+                    className="flex h-screen items-end gap-16 p-5"
+                >
                     <motion.h1
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
                         className="flex-[3] text-[9rem]"
                     >
-                        Ask any question.
+                        Ask any question.{" "}
+                        <span className="text-[8rem] text-cyan-300">
+                            Get your answers.
+                        </span>
                     </motion.h1>
                     <motion.div
-                        initial={{ x: 800, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ delay: 1, duration: 0.8 }}
                         className="flex h-[9rem] flex-[2] flex-col gap-3"
                     >
@@ -90,7 +97,8 @@ export default function Home() {
                         <h2 className="text-2xl">What is your question?</h2>
                         <input
                             type="text"
-                            className="w-full bg-white bg-opacity-10 p-3 focus:outline-none"
+                            className="w-full bg-white bg-opacity-10 p-3 transition-colors focus:bg-opacity-20 focus:outline-none"
+                            placeholder="Ask Away"
                         />
                         <button className="w-full bg-cyan-400 bg-opacity-20 p-3 shadow-lg transition-colors hover:bg-opacity-40">
                             Next
