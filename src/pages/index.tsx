@@ -1,9 +1,25 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import { FormEvent } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+    const scrollToTarget = (
+        e: FormEvent<HTMLAnchorElement>,
+        target: string
+    ) => {
+        e.preventDefault();
+        const targetNode = document.getElementById(target);
+
+        if (!targetNode) {
+            console.error("Target not found.");
+            return;
+        }
+
+        targetNode.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
     return (
         <>
             <Head>
@@ -31,15 +47,22 @@ export default function Home() {
                     <h1 className="flex-[3] text-[9rem]">Ask any question.</h1>
                     <div className="flex h-[9rem] flex-[2] flex-col gap-3">
                         <p className="text-4xl">Ready to get started?</p>
-                        <button className="rounded-lg bg-cyan-400 bg-opacity-30 px-10 py-5 text-3xl shadow-xl backdrop-blur-md transition-colors hover:bg-opacity-75">
+                        <a
+                            href="#createPoll"
+                            onClick={(e) => scrollToTarget(e, "createPoll")}
+                            className="rounded-lg bg-cyan-400 bg-opacity-30 px-10 py-5 text-center text-3xl shadow-xl backdrop-blur-md transition-colors hover:bg-opacity-75"
+                        >
                             Get Started
-                        </button>
+                        </a>
                     </div>
                 </section>
 
                 <div className="h-[5rem] bg-gradient-to-b from-transparent to-[#00000080]"></div>
 
-                <section className="h-screen bg-black bg-opacity-50"></section>
+                <section
+                    id="createPoll"
+                    className="h-screen bg-black bg-opacity-50"
+                ></section>
             </main>
         </>
     );

@@ -5,3 +5,7 @@
 body {
     background-image: url("./test.svg");
 }
+
+::-webkit-scrollbar {
+    width: 0;
+}
