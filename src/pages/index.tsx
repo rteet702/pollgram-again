@@ -74,7 +74,7 @@ export default function Home() {
                     </motion.div>
                 </section>
 
-                <div className="h-[5rem] bg-gradient-to-b from-transparent to-[#00000080]"></div>
+                <div className="h-[18rem] bg-gradient-to-b from-transparent to-[#00000080]"></div>
 
                 <section
                     id="createPoll"
