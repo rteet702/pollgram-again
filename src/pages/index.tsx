@@ -78,8 +78,25 @@ export default function Home() {
 
                 <section
                     id="createPoll"
-                    className="h-screen bg-black bg-opacity-50"
-                ></section>
+                    className="flex h-screen items-center justify-center bg-black bg-opacity-50"
+                >
+                    <motion.div
+                        initial={{ x: 100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        className="relative flex w-[500px] flex-col gap-5 bg-black bg-opacity-20 p-8 text-center text-white shadow-xl"
+                    >
+                        <p className="absolute top-3 left-3">1.</p>
+                        <h2 className="text-2xl">What is your question?</h2>
+                        <input
+                            type="text"
+                            className="w-full bg-white bg-opacity-10 p-3 focus:outline-none"
+                        />
+                        <button className="w-full bg-cyan-400 bg-opacity-20 p-3 shadow-lg transition-colors hover:bg-opacity-40">
+                            Next
+                        </button>
+                    </motion.div>
+                </section>
             </main>
         </>
     );
